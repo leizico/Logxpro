@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Logística Pro - Coleta e Entrega</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            // Paleta Safrasul - Baseada na Logo
+            brand: {
+              50: '#f5f6f8',
+              100: '#e8ebf0',
+              200: '#d1d7e2',
+              300: '#a8b4c9',
+              400: '#798aaa',
+              500: '#596b8e',
+              600: '#475776',
+              700: '#3a4a6a',
+              800: '#2a3a5a',
+              900: '#1a2a4a', // Logo Navy
+              950: '#0f1a2f',
+            },
+            accent: {
+              50: '#f5f3c2',
+              100: '#f0e8b1',
+              200: '#ead8a0',
+              300: '#e5c88f', // Logo Gold Light
+              400: '#dfb87e',
+              500: '#d4a86c', // Logo Gold Principal
+              600: '#c9a061',
+              700: '#b88f56',
+              800: '#a87d47',
+              900: '#8f6a3a',
+            },
+            safrasul: {
+              navy: {
+                DEFAULT: '#1a2a4a',
+                light: '#2a3a5a',
+                dark: '#0f1a2f',
+              },
+              gold: {
+                DEFAULT: '#d4a86c',
+                light: '#e5c88f',
+                dark: '#b88f56',
+              }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Leaflet Routing Machine for route drawing -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-R-NkSnpM.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-react-C919Pnit.js">
+  <link rel="modulepreload" crossorigin href="/assets/app-control-K-JH5EKW.js">
+  <link rel="modulepreload" crossorigin href="/assets/vendor-genai-C-7SJn5Y.js">
+  <link rel="modulepreload" crossorigin href="/assets/app-drivers-B6IjNaO4.js">
+  <link rel="modulepreload" crossorigin href="/assets/app-reports-CeF8fJMA.js">
+  <link rel="modulepreload" crossorigin href="/assets/app-dashboard-DRlGVENH.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-D2XXLHac.css">
+</head>
+
+<body class="bg-slate-50 text-slate-900 h-screen overflow-hidden">
+  <div id="root" class="h-full"></div>
+</body>
+
+</html>

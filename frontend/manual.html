@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual do Usuário - Logística Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #1e293b;
+            --text-secondary: #475569;
+            --border: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        /* Layout */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--bg-card);
+            min-height: 100vh;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                margin: 2rem auto;
+                border-radius: 12px;
+                min-height: auto;
+            }
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        h1 {
+            color: var(--primary-dark);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 1.8rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            border-left: 5px solid var(--primary);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul,
+        ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Components */
+        .card {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .tip {
+            background: #ecfdf5;
+            border-left-color: var(--success);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .tip-icon {
+            font-size: 1.5rem;
+        }
+
+        .warning {
+            background: #fef2f2;
+            border-left: 4px solid var(--danger);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        /* Images */
+        figure {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+
+        img:hover {
+            transform: scale(1.02);
+        }
+
+        figcaption {
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th,
+        td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .nav-btn {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: all 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .nav-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Checkboxes */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .checklist input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Print Styles */
+        @media print {
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            body {
+                background: white;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            h2 {
+                page-break-before: always;
+                margin-top: 1rem;
+            }
+
+            h2:first-of-type {
+                page-break-before: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <span class="logo">📦</span>
+            <h1>Manual do Usuário</h1>
+            <p class="subtitle">Sistema Logística-Pro</p>
+        </header>
+
+        <nav class="nav-links">
+            <a href="#intro" class="nav-btn">Início</a>
+            <a href="#motorista" class="nav-btn">Motoristas</a>
+            <a href="#gestor" class="nav-btn">Gestores</a>
+            <a href="#faq" class="nav-btn">Ajuda</a>
+        </nav>
+
+        <section id="intro">
+            <h2>🎯 O que é este sistema?</h2>
+            <p>Imagine que você tem uma loja que precisa entregar muitos produtos para várias pessoas diferentes. Este
+                sistema é como um <strong>ajudante super inteligente</strong> que:</p>
+            <ul>
+                <li>Organiza todas as entregas</li>
+                <li>Mostra no mapa onde cada motorista está</li>
+                <li>Ajuda os motoristas a encontrar o caminho mais rápido</li>
+                <li>Guarda todas as informações importantes (como fotos e assinaturas)</li>
+            </ul>
+
+            <div class="card">
+                <h3>👥 Quem usa este sistema?</h3>
+                <p><strong>🚛 Motorista (Entregador):</strong> É a pessoa que dirige o caminhão ou carro e faz as
+                    entregas.</p>
+                <p><strong>👔 Gestor (Chefe):</strong> É a pessoa que fica no escritório organizando tudo e vendo como
+                    está indo o trabalho.</p>
+            </div>
+        </section>
+
+        <section id="login">
+            <h2>🔐 Como entrar no sistema?</h2>
+
+            <h3>Passo 1: Abrir o sistema</h3>
+            <p>Abra o programa no seu computador ou celular. Você vai ver uma tela bonita com um desenho de caminhão 🚚
+            </p>
+
+            <figure>
+                <img src="./manual_assets/login.png" alt="Tela de Login" />
+                <figcaption>Tela de login do sistema</figcaption>
+            </figure>
+
+            <h3>Passo 2: Fazer login</h3>
+            <ol>
+                <li>Digite seu <strong>nome de usuário</strong> (é como seu apelido no sistema)</li>
+                <li>Digite sua <strong>senha</strong> (é como uma senha secreta, só você sabe!)</li>
+                <li>Clique no botão <strong>"Entrar"</strong></li>
+            </ol>
+
+            <div class="tip">
+                <span class="tip-icon">💡</span>
+                <p><strong>Dica:</strong> Se você esqueceu sua senha, peça ajuda para o gestor!</p>
+            </div>
+        </section>
+
+        <section id="motorista">
+            <h2>🚛 Manual para MOTORISTAS</h2>
+
+            <h3>📱 Tela Principal</h3>
+            <p>Quando você entra, vai ver uma tela parecida com esta:</p>
+
+            <figure>
+                <img src="./manual_assets/motorista_dashboard.png" alt="Tela Principal do Motorista" />
+                <figcaption>Tela principal do motorista com mapa e lista de entregas</figcaption>
+            </figure>
+
+            <h4>1. 🗺️ Mapa Grande</h4>
+            <p>Mostra onde você está (pontinho azul), onde precisa ir (bandeirinhas) e o caminho a seguir.</p>
+
+            <h4>2. 📋 Lista de Entregas</h4>
+            <p>Logo abaixo do mapa, você vê todas as suas entregas do dia em cartõezinhos coloridos:</p>
+            <ul>
+                <li><strong style="color: #ef4444">🔴 Vermelho (ALTA)</strong> = Muito urgente! Entregue primeiro!</li>
+                <li><strong style="color: #f59e0b">🟡 Amarelo (NORMAL)</strong> = Pode entregar depois das urgentes</li>
+                <li><strong style="color: #10b981">🟢 Verde (BAIXA)</strong> = Entregue por último</li>
+            </ul>
+
+            <h3>📦 Como fazer uma entrega?</h3>
+
+            <h4>Passo 1: Escolher e Visualizar</h4>
+            <p>Clique no cartão da entrega que quer fazer. A tela vai mudar e mostrar todos os detalhes.</p>
+
+            <figure>
+                <img src="./manual_assets/detalhes_tarefa.png" alt="Detalhes da Tarefa" />
+                <figcaption>Tela de detalhes de uma entrega</figcaption>
+            </figure>
+
+            <h4>Passo 2: Navegar e Iniciar</h4>
+            <ol>
+                <li>Clique em <strong>"Ver no Mapa Completo"</strong> para ver o caminho.</li>
+                <li>Quando chegar, clique em <strong>"Iniciar Tarefa"</strong> ▶️.</li>
+            </ol>
+
+            <h4>Passo 3: Finalizar e Assinar</h4>
+            <p>Depois de entregar os produtos e tirar a foto do comprovante, peça para o cliente assinar:</p>
+
+            <figure>
+                <img src="./manual_assets/assinatura.png" alt="Tela de Assinatura" />
+                <figcaption>Tela de captura de assinatura</figcaption>
+            </figure>
+
+            <div class="warning">
+                <h3>❌ Não conseguiu entregar?</h3>
+                <p>Se o cliente não estava ou teve algum problema:</p>
+                <ol>
+                    <li>Clique em <strong>"Falhar Tarefa"</strong> ❌</li>
+                    <li>Escreva o motivo (ex: "Portão fechado")</li>
+                    <li>Tire uma foto se precisar</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="gestor">
+            <h2>👔 Manual para GESTORES</h2>
+
+            <h3>📊 Tela de Operações</h3>
+            <p>Aqui você vê tudo acontecendo em tempo real:</p>
+
+            <figure>
+                <img src="./manual_assets/gestor_operacoes.png" alt="Dashboard do Gestor" />
+                <figcaption>Mapa de operações mostrando todos os motoristas e rotas</figcaption>
+            </figure>
+
+            <h3>O que você pode fazer aqui?</h3>
+            <ul>
+                <li><strong>Ver todos os motoristas:</strong> Cada um com uma cor diferente no mapa.</li>
+                <li><strong>Monitorar entregas:</strong> Veja quais estão atrasadas ou pendentes.</li>
+                <li><strong>Filtrar:</strong> Veja apenas as entregas urgentes ou de um motorista específico.</li>
+            </ul>
+
+            <h3>📥 Importar Notas (XML)</h3>
+            <p>O jeito mais fácil de adicionar entregas:</p>
+            <ol>
+                <li>Clique em <strong>"Central de Integração"</strong></li>
+                <li>Selecione o <strong>Motorista</strong></li>
+                <li>Arraste os arquivos XML das notas fiscais</li>
+                <li>Confirme a importação!</li>
+            </ol>
+        </section>
+
+        <section id="faq">
+            <h2>🆘 Dúvidas Frequentes</h2>
+
+            <div class="card">
+                <h4>"Não consigo tirar foto no celular"</h4>
+                <p>O navegador vai pedir permissão para usar a câmera. Você precisa clicar em
+                    <strong>"Permitir"</strong>. Se negou antes, vá nas configurações do navegador para liberar.
+                </p>
+            </div>
+
+            <div class="card">
+                <h4>"Estou sem internet, e agora?"</h4>
+                <p>Relaxa! O sistema guarda seus dados e envia tudo assim que a internet voltar. Pode continuar
+                    trabalhando normalmente.</p>
+            </div>
+
+            <div class="card">
+                <h4>"Como adiciono um novo motorista?"</h4>
+                <p>Vá em <strong>"Gerenciar Motoristas"</strong> > <strong>"Adicionar"</strong> e preencha os dados
+                    básicos (Nome, Usuário, Senha, Placa).</p>
+            </div>
+        </section>
+
+        <section id="checklist">
+            <h2>✅ Checklist Rápido</h2>
+
+            <h4>Antes de Sair (Motorista)</h4>
+            <ul class="checklist">
+                <li><input type="checkbox"> Fiz login no sistema</li>
+                <li><input type="checkbox"> Conferi todas as entregas do dia</li>
+                <li><input type="checkbox"> Celular está carregado</li>
+                <li><input type="checkbox"> Carreguei todos os produtos no veículo</li>
+            </ul>
+
+            <h4>No Começo do Dia (Gestor)</h4>
+            <ul class="checklist">
+                <li><input type="checkbox"> Importei todos os XMLs novos</li>
+                <li><input type="checkbox"> Distribuí as entregas entre os motoristas</li>
+                <li><input type="checkbox"> Conferi se a ordem das rotas faz sentido</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Logística-Pro • Manual do Usuário v1.0 • Dezembro 2025</p>
+            <p><em>Criado para facilitar o seu dia a dia ❤️</em></p>
+        </footer>
+    </div>
+</body>
+
+</html>
