@@ -1,12 +1,25 @@
 const mysql = require('mysql2/promise');
 const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '.env') });
+require('dotenv').config({ path: path.join(__dirname, '.env'), override: true });
+
+let applyResolvedDbNameToProcessEnv;
+try {
+    applyResolvedDbNameToProcessEnv = require(path.join(__dirname, '..', '..', 'server', 'dbName.js'))
+        .applyResolvedDbNameToProcessEnv;
+} catch {
+    applyResolvedDbNameToProcessEnv = (env) => {
+        const n = String((env || process.env).DB_NAME || '').trim() || 'logistix_db';
+        (env || process.env).DB_NAME = n;
+        return n;
+    };
+}
+const resolvedDbName = applyResolvedDbNameToProcessEnv();
 
 const pool = mysql.createPool({
     host: process.env.DB_HOST || 'localhost',
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
-    database: process.env.DB_NAME || 'logistix_db',
+    database: resolvedDbName,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
